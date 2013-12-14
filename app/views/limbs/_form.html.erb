@@ -1,0 +1,26 @@
+<%= form_for([@zombie, @limb]) do |f| %>
+  <% if @limb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@limb.errors.count, "error") %> prohibited this limb from being saved:</h2>
+
+      <ul>
+      <% @limb.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :zombie %><br>
+    <%# f.text_field :zombie %>
+    <%= collection_radio_buttons(:limb, :zombie_id, @zombies, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :kind %><br>
+    <%= f.text_field :kind %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
