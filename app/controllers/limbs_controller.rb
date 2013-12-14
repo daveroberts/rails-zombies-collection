@@ -20,6 +20,7 @@ class LimbsController < ApplicationController
 
   # GET /limbs/1/edit
   def edit
+    @zombies = Zombie.all
   end
 
   # POST /limbs
